@@ -498,12 +498,12 @@ document.getElementById("btn-submit").addEventListener("click", function() {
   btn.disabled = true;
 
   // Submit to Google Sheets via fetch no-cors
-  var formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeKYXWmtOUiGXypAumaPIVRDH_ubuQ4JGHrjULwXdbYe_tqAA/formResponse";
-  var formBody = "entry.1300569471=" + encodeURIComponent(name) + "&entry.95328830=" + encodeURIComponent(phone);
+  var formUrl = "https://script.google.com/macros/s/AKfycbxlcEHJFqLWdv1Ll-soX6Ci-MiP4t4DFq1YcJCekoK1kBw7LUa9lCd6c5wkIBHseMIS/exec";
+  var formBody = JSON.stringify({name: name, phone: phone});
   fetch(formUrl, {
     method: "POST",
     mode: "no-cors",
-    headers: {"Content-Type": "application/x-www-form-urlencoded"},
+    headers: {"Content-Type": "application/json"},
     body: formBody
   }).catch(function(){});
 
