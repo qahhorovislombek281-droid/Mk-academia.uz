@@ -514,6 +514,16 @@ document.getElementById("btn-submit").addEventListener("click", function() {
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({chat_id: "6331999423", text: msg, parse_mode: "HTML"})
   }).catch(function(){});
+  // Supabase ga saqlash
+fetch("https://nwffdrsroodagwjzugex.supabase.co/rest/v1/Leads", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "apikey": "sb_publishable_AIiUsUUGAyGn8VfqztdZvw_iF6sWeEo",
+    "Authorization": "Bearer sb_publishable_AIiUsUUGAyGn8VfqztdZvw_iF6sWeEo"
+  },
+  body: JSON.stringify({Name: name, Phone: phone})
+}).catch(function(){});
 
   // Meta Pixel Lead event
   if(typeof fbq !== "undefined") { fbq("track", "Lead"); }
